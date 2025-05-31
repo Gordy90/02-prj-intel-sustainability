@@ -6,12 +6,22 @@ body {
   padding: 0;
 }
 
+/* Import Noto Serif Dives Akuru font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Dives+Akuru&display=swap');
+
 /* Header styling */
 header {
   background: #0a192f;
   color: #fff;
   padding: 32px 0;
   text-align: center;
+}
+
+/* Use Noto Serif Dives Akuru for all headers */
+header h1,
+.timeline-card h2,
+.timeline-card h3 {
+  font-family: 'Noto Serif Dives Akuru', serif;
 }
 
 header img {
@@ -35,6 +45,7 @@ section {
   --timeline-height: 450px;
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden; /* Prevent vertical scrolling */
   scroll-behavior: smooth;
   gap: 0;
   width: var(--timeline-width);
@@ -43,15 +54,21 @@ section {
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
   height: var(--timeline-height);
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  -ms-overflow-style: auto;      /* Show default scrollbar */
+  scrollbar-width: auto;         /* Show default scrollbar */
   /* Enable scroll snap for horizontal cards */
   scroll-snap-type: x mandatory; /* Snap to each card horizontally */
 }
 
-/* Hide scrollbar for a cleaner look */
+/* Show horizontal scrollbar for all browsers */
 .timeline-container::-webkit-scrollbar {
-  display: none;
+  display: block;
+  height: 10px;
+  background: #eee;
+}
+.timeline-container::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 5px;
 }
 
 /* Timeline card styling */
@@ -91,13 +108,13 @@ section {
 /* Card headings */
 .timeline-card h2 {
   margin: 12px 0 0 0;
-  font-size: 1.2em;
+  font-size: 2em;
   color: #0071c5;
 }
 
 .timeline-card h3 {
   margin: 4px 0 0 0;
-  font-size: 1em;
+  font-size: 2em;
   color: #222;
 }
 
@@ -137,24 +154,11 @@ section {
   margin: 0 auto;      /* Center the text horizontally */
 }
 
-/* Timeline navigation buttons */
-.timeline-btn {
-  background: #0071c5;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 1.5em;
-  cursor: pointer;
-  margin: 0 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-  transition: background 0.2s;
-  z-index: 2;
-}
-
-.timeline-btn:hover {
-  background: #005fa3;
+/* Remove timeline navigation buttons */
+.timeline-btn,
+.timeline-btn.left,
+.timeline-btn.right {
+  display: none;
 }
 
 /* Responsive: stack cards on small screens */

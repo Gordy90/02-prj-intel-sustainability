@@ -5,6 +5,208 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Responsive styles for different screen sizes -->
+  <style>
+    /* Make sure the page uses the full width on all devices */
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+    }
+
+    /* Header styles */
+    header {
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    header img {
+      max-width: 120px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 1.5em;
+      margin: 10px 0;
+    }
+
+    /* Add a class for the description paragraph */
+    .description {
+      /* Start with a comfortable font size */
+      font-size: 1.1em;
+      text-align: center;
+      margin: 0 auto 10px auto;
+      max-width: 600px;
+    }
+
+    /* Make the font size a bit smaller on small screens */
+    @media (max-width: 600px) {
+      .description {
+        font-size: 1em;
+        padding: 0 8px;
+      }
+    }
+
+    /* Make the font size a bit larger on big screens */
+    @media (min-width: 1000px) {
+      .description {
+        font-size: 1.25em;
+      }
+    }
+
+    /* Timeline section styles */
+    section {
+      padding: 10px 0;
+      position: relative;
+    }
+
+    /* Timeline container scrolls horizontally */
+    .timeline-container {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      scrollbar-width: auto; /* Show default scrollbar */
+      -ms-overflow-style: auto; /* Show default scrollbar on IE 10+ */
+      justify-content: flex-start;
+      align-items: stretch;
+      width: 100%;
+      max-width: 900px;
+      height: 500px;
+      margin: 0 auto;
+      scroll-snap-type: x mandatory; /* Snap to each card horizontally */
+    }
+    /* Show horizontal scrollbar for all browsers */
+    .timeline-container::-webkit-scrollbar {
+      display: block;
+      height: 10px;
+      background: #eee;
+    }
+    .timeline-container::-webkit-scrollbar-thumb {
+      background: #bbb;
+      border-radius: 5px;
+    }
+
+    .timeline-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      min-width: 100%;
+      max-width: 100%;
+      flex: 0 0 100%;
+      padding: 12px;
+      position: relative;
+      transition: box-shadow 0.2s;
+      box-sizing: border-box;
+      margin: 0;
+      scroll-snap-align: start; /* Snap to the start of each card */
+    }
+
+    .timeline-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .timeline-card img {
+      width: 100%;
+      height: 450px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .card-overlay p {
+      font-size: 0.95em;
+      margin: 0;
+    }
+
+    .timeline-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      background: #0071c5;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.5em;
+      cursor: pointer;
+      opacity: 0.85;
+      transition: background 0.2s;
+    }
+
+    .timeline-btn.left {
+      left: 8px;
+    }
+
+    .timeline-btn.right {
+      right: 8px;
+    }
+
+    .timeline-btn:active {
+      background: #005fa3;
+    }
+
+    p[style] {
+      font-size: 1em;
+      padding: 8px;
+    }
+
+    /* Tablet styles */
+    @media (max-width: 900px) {
+      header img {
+        max-width: 90px;
+      }
+      h1 {
+        font-size: 1.2em;
+      }
+      .timeline-container {
+        max-width: 220px;
+      }
+      .timeline-card {
+        padding: 10px;
+      }
+      .timeline-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.3em;
+      }
+    }
+
+    /* Mobile styles */
+    @media (max-width: 600px) {
+      header {
+        padding: 12px 4px;
+      }
+      header img {
+        max-width: 60px;
+      }
+      h1 {
+        font-size: 1em;
+      }
+      .timeline-container {
+        max-width: 98vw;
+      }
+      .timeline-card {
+        padding: 6px;
+      }
+      .timeline-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1em;
+      }
+      p[style] {
+        font-size: 0.95em;
+        padding: 4px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Header Section -->
@@ -14,7 +216,8 @@
     <!-- Main Heading -->
     <h1>Sustainability Through the Ages</h1>
     <!-- Description -->
-    <p>
+    <!-- Description paragraph with a class for responsive font size -->
+    <p class="description">
       Explore Intel's journey through time, discovering how our commitment
       to innovation has shaped a more sustainable future for technology 
       and our planet.
@@ -23,9 +226,6 @@
 
   <!-- Timeline Section -->
   <section>
-    <!-- Timeline navigation buttons -->
-    <button class="timeline-btn left" aria-label="Scroll left">&#8592;</button>
-
     <!-- Timeline container -->
     <div class="timeline-container">
       <!-- Timeline Card Example -->
@@ -155,13 +355,11 @@
         </div>
       </div>
     </div>
-
-    <button class="timeline-btn right" aria-label="Scroll right">&#8594;</button>
-    </section>
-    <!-- Centered and bold instruction text -->
-    <p style="text-align: center; font-weight: bold;">
+  </section>
+  <!-- Centered and bold instruction text -->
+  <p style="text-align: center; font-weight: bold;">
     Scroll to view timeline | Hover over cards to learn more!
-    </p>
+  </p>
 
   <!-- Simple script for scroll buttons -->
   <script>
