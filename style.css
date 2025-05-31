@@ -32,15 +32,14 @@ section {
 /* Only one card will be visible at a time. Adjust width/height below. */
 .timeline-container {
   --timeline-width: 1200px;
-  --timeline-height: 500px;
+  --timeline-height: 450px;
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
   gap: 0;
-  padding: 16px 0;
   width: var(--timeline-width);
   max-width: var(--timeline-width);
-  background: #eaf1fb;
+
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
   height: var(--timeline-height);
@@ -84,7 +83,7 @@ section {
 /* Card image styling */
 .timeline-card img {
   width: 100%;
-  height: 350px; /* Set the height of the image */
+  height: 445px; /* Set the height of the image */
   object-fit: cover;
   border-bottom: 1px solid #e0e0e0;
 }
@@ -131,6 +130,11 @@ section {
   margin: 0;
   font-size: 0.95em;
   line-height: 1.4;
+  max-width: 700px;    /* Limit the width of the text */
+  width: 100%;         /* Make text fill available space up to max-width */
+  color: #ffd700;      /* Example: change text color (optional) */
+  font-size: 1.1em;    /* Example: change text size (optional) */
+  margin: 0 auto;      /* Center the text horizontally */
 }
 
 /* Timeline navigation buttons */

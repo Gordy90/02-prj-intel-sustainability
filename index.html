@@ -7,40 +7,33 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Header / Hero Section -->
+  <!-- Header Section -->
   <header>
-    <div>
-      <!-- Ask Copilot to teach you about `.svg` 🙂 -->
-      <img src="img/intel-header-logo.svg" alt="Intel Logo" />
-      <!-- Main Heading -->
-      <h1>
-        Sustainability Through the Ages
-      </h1>
-
-      <!-- Subheading / Description -->
-      <p>
-        Explore Intel's journey through time, discovering how our commitment
-        to innovation has shaped a more sustainable future for technology 
-        and our planet.
-      </p>
-    </div>
+    <!-- Intel Logo -->
+    <img src="img/intel-header-logo.svg" alt="Intel Logo" />
+    <!-- Main Heading -->
+    <h1>Sustainability Through the Ages</h1>
+    <!-- Description -->
+    <p>
+      Explore Intel's journey through time, discovering how our commitment
+      to innovation has shaped a more sustainable future for technology 
+      and our planet.
+    </p>
   </header>
 
-  <!-- Timeline Cards Section -->
+  <!-- Timeline Section -->
   <section>
     <!-- Timeline navigation buttons -->
-    <!-- Left arrow button -->
     <button class="timeline-btn left" aria-label="Scroll left">&#8592;</button>
 
-    <!-- Timeline container for horizontal scroll -->
+    <!-- Timeline container -->
     <div class="timeline-container">
-      <!-- Card 1: 1968 -->
+      <!-- Timeline Card Example -->
+      <!-- Each card represents a year and event -->
       <div class="timeline-card">
         <h2>1968</h2>
         <h3>Intel Founded</h3>
-        <img src="img/1.jpg" alt="Placeholder Image" />
-        <!-- Overlay text -->
+        <img src="img/1.jpg" alt="Intel founders" />
         <div class="card-overlay">
           <p>
             Robert Noyce and Gordon Moore rename the newly formed company 
@@ -95,7 +88,7 @@
       <div class="timeline-card">
         <h2>2006</h2>
         <h3>Peak GHG Emissions</h3>
-        <img src="https://placehold.co/250x100" alt="Placeholder Image" />
+        <img src="img/emmisions2.png" alt="Placeholder Image" />
         <div class="card-overlay">
           <p>
             This year marks Intel's highest annual greenhouse gas emissions 
@@ -110,7 +103,7 @@
       <div class="timeline-card">
         <h2>2020</h2>
         <h3>RISE Strategy</h3>
-        <img src="https://placehold.co/250x100" alt="Placeholder Image" />
+        <img src="img/windmill.png" alt="Placeholder Image" />
         <div class="card-overlay">
           <p>
             Intel launches its RISE (Responsible, Inclusive, Sustainable, 
@@ -124,7 +117,7 @@
       <div class="timeline-card">
         <h2>2022</h2>
         <h3>Net-Zero By 2040</h3>
-        <img src="https://placehold.co/250x100" alt="Placeholder Image" />
+        <img src="img/nature_resized_1200x350.png" alt="Placeholder Image" />
         <div class="card-overlay">
           <p>
             Intel announces its commitment to achieve net-zero greenhouse 
@@ -138,7 +131,7 @@
       <div class="timeline-card">
         <h2>2023</h2>
         <h3>Renewable Electricity</h3>
-        <img src="https://placehold.co/250x100" alt="Placeholder Image" />
+        <img src="img/markus-spiske-rNn_TU8dvoY-unsplash.png" alt="Renewable Electricity" />
         <div class="card-overlay">
           <p>
             The company achieves 99% renewable electricity usage worldwide, 
@@ -152,7 +145,7 @@
       <div class="timeline-card">
         <h2>2024</h2>
         <h3>Sustainability Summit</h3>
-        <img src="https://placehold.co/250x100" alt="Placeholder Image" />
+        <img src="img/guillaume-de-germain-6Xw9wMJyHus-unsplash.png" alt="Sustainability Summit" />
         <div class="card-overlay">
           <p>
             Intel hosts its first Sustainability Summit, uniting suppliers, 
@@ -163,10 +156,12 @@
       </div>
     </div>
 
-    <!-- Right arrow button -->
     <button class="timeline-btn right" aria-label="Scroll right">&#8594;</button>
-  </section>
-  <p>Scroll to view timeline | Hover over cards to learn more!</p>
+    </section>
+    <!-- Centered and bold instruction text -->
+    <p style="text-align: center; font-weight: bold;">
+    Scroll to view timeline | Hover over cards to learn more!
+    </p>
 
   <!-- Simple script for scroll buttons -->
   <script>
@@ -178,15 +173,37 @@
     // Scroll amount per click (in pixels)
     const scrollAmount = 300;
 
+    // Function to update arrow visibility
+    function updateArrowVisibility() {
+      // If at the very left, hide left arrow
+      if (timeline.scrollLeft <= 0) {
+        btnLeft.style.display = "none";
+      } else {
+        btnLeft.style.display = "inline-block";
+      }
+      // If at the very right, hide right arrow
+      if (timeline.scrollLeft + timeline.clientWidth >= timeline.scrollWidth - 1) {
+        btnRight.style.display = "none";
+      } else {
+        btnRight.style.display = "inline-block";
+      }
+    }
+
     // Scroll left
-    btnLeft.addEventListener('click', () => {
+    btnLeft.addEventListener('click', function() {
       timeline.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     });
 
     // Scroll right
-    btnRight.addEventListener('click', () => {
+    btnRight.addEventListener('click', function() {
       timeline.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     });
+
+    // Update arrows after scrolling
+    timeline.addEventListener('scroll', updateArrowVisibility);
+
+    // Update arrows on page load
+    window.addEventListener('load', updateArrowVisibility);
   </script>
 </body>
 </html>
