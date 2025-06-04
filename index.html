@@ -7,164 +7,6 @@
   <!-- Add Bootstrap CSS for easy responsive design -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <!-- Responsive styles for different screen sizes -->
-  <style>
-    /* Basic body styles for all devices */
-    body {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-    }
-
-    /* Header styles */
-    header {
-      text-align: center;
-      padding: 20px 10px;
-    }
-
-    header img {
-      max-width: 120px;
-      width: 100%;
-      height: auto;
-      margin-bottom: 10px;
-    }
-
-    h1 {
-      font-size: 1.5em;
-      margin: 10px 0;
-    }
-
-    /* Responsive description paragraph */
-    .description {
-      font-size: 1.1em; /* Comfortable font size */
-      text-align: center;
-      margin: 0 auto 10px auto;
-      max-width: 600px;
-    }
-
-    /* Timeline section styles */
-    section {
-      padding: 10px 0;
-      position: relative;
-    }
-
-    /* Timeline container: horizontal scroll with flexbox */
-    .timeline-container {
-      display: flex;
-      flex-direction: row;
-      overflow-x: auto;
-      padding: 0;
-      scroll-behavior: smooth;
-      scrollbar-width: auto;
-      -ms-overflow-style: auto;
-      justify-content: flex-start;
-      align-items: stretch;
-      width: 100%;
-      max-width: 900px;
-      height: 500px;
-      margin: 0 auto;
-      scroll-snap-type: x mandatory;
-    }
-
-    /* Show horizontal scrollbar for all browsers */
-    .timeline-container::-webkit-scrollbar {
-      display: block;
-      height: 10px;
-      background: #eee;
-    }
-    .timeline-container::-webkit-scrollbar-thumb {
-      background: #bbb;
-      border-radius: 5px;
-    }
-
-    /* Timeline card styles */
-    .timeline-card {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      min-width: 100%;
-      max-width: 100%;
-      flex: 0 0 100%;
-      padding: 12px;
-      position: relative;
-      transition: box-shadow 0.2s;
-      box-sizing: border-box;
-      margin: 0;
-      scroll-snap-align: start;
-    }
-
-    .timeline-card:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    }
-
-    .timeline-card img {
-      width: 100%;
-      height: 450px;
-      border-radius: 4px;
-      margin-bottom: 8px;
-      object-fit: cover;
-    }
-
-    .card-overlay p {
-      font-size: 0.95em;
-      margin: 0;
-    }
-
-    /* Timeline navigation buttons (if used) */
-    .timeline-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 2;
-      background: #0071c5;
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      font-size: 1.5em;
-      cursor: pointer;
-      opacity: 0.85;
-      transition: background 0.2s;
-    }
-    .timeline-btn.left { left: 8px; }
-    .timeline-btn.right { right: 8px; }
-    .timeline-btn:active { background: #005fa3; }
-
-    /* General paragraph style for inline styles */
-    p[style] {
-      font-size: 1em;
-      padding: 8px;
-    }
-
-    /* Tablet styles */
-    @media (max-width: 900px) {
-      header img { max-width: 90px; }
-      h1 { font-size: 1.2em; }
-      .timeline-container { max-width: 220px; }
-      .timeline-card { padding: 10px; }
-      .timeline-btn { width: 44px; height: 44px; font-size: 1.3em; }
-    }
-
-    /* Mobile styles */
-    @media (max-width: 600px) {
-      header { padding: 12px 4px; }
-      header img { max-width: 60px; }
-      h1 { font-size: 1em; }
-      .timeline-container { max-width: 98vw; }
-      .timeline-card { padding: 6px; }
-      .timeline-btn { width: 38px; height: 38px; font-size: 1.1em; }
-      p[style] { font-size: 0.95em; padding: 4px; }
-      .description { font-size: 1em; padding: 0 8px; }
-    }
-
-    /* Large screen styles */
-    @media (min-width: 1000px) {
-      .description { font-size: 1.25em; }
-    }
-  </style>
 </head>
 <body>
   <!-- Header Section -->
@@ -312,54 +154,89 @@
       </div>
     </div>
   </section>
+
   <!-- Centered and bold instruction text -->
-  <p style="text-align: center; font-weight: bold;">
+  <p class="instruction-text">
     Scroll to view timeline | Hover over cards to learn more!
   </p>
 
-  <!-- Simple script for scroll buttons (if you add them) -->
+  <!-- Bootstrap Subscription Footer -->
+  <footer class="bg-dark text-white py-5 mt-5">
+    <div class="container">
+      <!-- Newsletter Subscription Section -->
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+          <div class="text-center mb-4">
+            <h3 class="mb-3">Stay Updated on Intel's Sustainability Journey</h3>
+            <p class="mb-4">Subscribe to receive the latest news and updates about Intel's environmental initiatives and sustainability goals.</p>
+          </div>
+          
+          <!-- Bootstrap Form -->
+          <form class="row g-3 justify-content-center">
+            <div class="col-12 col-md-8">
+              <label for="emailInput" class="visually-hidden">Email address</label>
+              <input type="email" class="form-control form-control-lg" id="emailInput" placeholder="Enter your email address" required>
+            </div>
+            <div class="col-12 col-md-4">
+              <button type="submit" class="btn btn-primary btn-lg w-100">Subscribe</button>
+            </div>
+          </form>
+          
+          <!-- Privacy Notice -->
+          <div class="text-center mt-3">
+            <small class="text-muted">
+                <!-- Centered privacy notice text for beginners -->
+                <span style="display: block; text-align: center;">
+                By subscribing, you agree to receive emails from Intel. 
+                </span>
+              <a href="#" class="text-decoration-none">Privacy Policy</a>
+            </small>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="row mt-5 pt-4 border-top border-secondary">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2024 Intel Corporation. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#" class="text-white text-decoration-none me-3">Terms of Use</a>
+          <a href="#" class="text-white text-decoration-none">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Optimized JavaScript -->
   <script>
-    // Get timeline container and buttons
-    const timeline = document.querySelector('.timeline-container');
-    const btnLeft = document.querySelector('.timeline-btn.left');
-    const btnRight = document.querySelector('.timeline-btn.right');
-
-    // Scroll amount per click (in pixels)
-    const scrollAmount = 300;
-
-    // Function to update arrow visibility
-    function updateArrowVisibility() {
-      // If at the very left, hide left arrow
-      if (timeline.scrollLeft <= 0) {
-        btnLeft.style.display = "none";
+    // Simple function to detect RTL languages by checking text content
+    function checkForRTL() {
+      const pageText = document.body.textContent || '';
+      // Check for RTL characters (Arabic, Hebrew, Persian)
+      const rtlRegex = /[\u0590-\u06FF]/;
+      
+      if (rtlRegex.test(pageText)) {
+        document.documentElement.setAttribute('dir', 'rtl');
       } else {
-        btnLeft.style.display = "inline-block";
-      }
-      // If at the very right, hide right arrow
-      if (timeline.scrollLeft + timeline.clientWidth >= timeline.scrollWidth - 1) {
-        btnRight.style.display = "none";
-      } else {
-        btnRight.style.display = "inline-block";
+        document.documentElement.setAttribute('dir', 'ltr');
       }
     }
 
-    // Scroll left
-    btnLeft.addEventListener('click', function() {
-      timeline.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    // Run when page loads and check every 3 seconds for Google Translate changes
+    document.addEventListener('DOMContentLoaded', checkForRTL);
+    setInterval(checkForRTL, 3000);
+
+    // Watch for changes in page content
+    const observer = new MutationObserver(checkForRTL);
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      characterData: true
     });
-
-    // Scroll right
-    btnRight.addEventListener('click', function() {
-      timeline.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    });
-
-    // Update arrows after scrolling
-    timeline.addEventListener('scroll', updateArrowVisibility);
-
-    // Update arrows on page load
-    window.addEventListener('load', updateArrowVisibility);
   </script>
-  <!-- Add Bootstrap JS (optional, for components that need JS) -->
+
+  <!-- Add Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
